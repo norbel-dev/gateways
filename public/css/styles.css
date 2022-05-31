@@ -1,0 +1,50 @@
+.right-space{
+    margin-right: 1em;
+}
+.remove-float{
+    float:none;
+}
+.top-space{
+    margin-top: 1.5em;
+}
+.big-top-space{
+    margin-top: 5em;
+}
+.large-padding{
+    padding: 10px 15px;
+}
+.black{
+    background-color: #333;
+}
+.white-text{
+    color: white;
+}
+.red-text{
+    color: white;
+}
+nav{
+    text-align: right;
+}
+nav li{
+    display: inline-block;
+    margin-right: 1em;
+    font-size: 1.5em;
+}
+nav li a{
+    color: white;
+}
+nav li a:hover{
+    color: rgb(230, 202, 202);
+}
+.white{
+    background-color: white;
+}
+.border{
+    border: solid 1px rgb(114, 111, 111);
+}
+.tr:nth-of-type(odd){
+    background-color: rgb(201, 197, 197);
+}
+form.link{
+    display: inline-block;
+}

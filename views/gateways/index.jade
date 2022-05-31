@@ -1,0 +1,40 @@
+extends ../layout.jade
+block content
+    div(class="m-0 row justify-content-center")
+        div(class="col-md-6 remove-float top-space")
+            h1 Show all gateways.
+            a(href="/app/gateways/new" class="d-flex justify-content-end") New Gateway
+            table( class="table dt-table-hover" style="width:105%")
+                thead
+                    tr
+                        th Serial Number
+                        th Name
+                        th Ipv4
+                        th Devices
+                        th To be validated
+                        th Actions
+                tbody
+                    for gateway in gateways
+                        tr(class="tr")
+                            td #{gateway.serialNumber}
+                            td #{gateway.name}
+                            td #{gateway.ipv4}
+                            td 
+                                if gateway.deviceCount > 0
+                                    a(href="/app/devices/#{gateway._id}/group" ) #{gateway.deviceCount} 
+                                else
+                                    a(href="" ) #{gateway.deviceCount} 
+                            td #{gateway.toBeValidated?"to be validate":"validate"}  
+                            td                    
+                                a(href="/app/gateways/#{gateway._id}" class="btn btn-info") Details 
+                                a(href="/app/gateways/#{gateway._id}/edit" class="btn btn-success") Edit 
+                                form(action="/app/gateways/#{gateway._id}?_method=DELETE", method="post" class="link")
+                                    button(class="btn btn-danger" type="submit") Remove
+                tfoot
+                    th Serial Number
+                    th Name
+                    th Ipv4
+                    th Devices
+                    th To be validated
+                    th Actions
+                    

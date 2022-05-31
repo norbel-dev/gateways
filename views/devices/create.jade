@@ -1,0 +1,36 @@
+extends ../layout.jade
+block content
+    div(class="m-0 row justify-content-center")
+        div(class="col-md-6 remove-float top-space")
+            h1 Create Device.
+            a(href="/app/devices" class="d-flex justify-content-end") Come Back
+            form(action="/app/devices", method="post") 
+                div(class="form-group mt-2")
+                    label(for="uid") Id 
+                    input(type="text" class="form-control" name="uid" placeholder="Enter the ID" id="uid" value="#{(typeof values != 'undefined')? values.uid: ''}")
+                div(class="form-group mt-2")
+                    label(for="vendor") Vendor 
+                    input(type="text" class="form-control" name="vendor" placeholder="Enter the Vendor" id="vendor" value="#{(typeof values != 'undefined')? values.vendor: ''}")
+                div(class="form-group mt-2")
+                    label(for="date_created") Date created 
+                    input(type="text" class="form-control" name="date_created" id="date_created" value="#{(typeof values != 'undefined')? values.date_created: ''}")
+
+                div(class="form-group mt-2")
+                    input(class="form-check-input right-space" type="checkbox" id="status" name="status" )
+                    label(for="status") Status - (Online/Offline)
+                div(class="form-group mt-2")
+                    label(for="gateway") Gateway 
+                    select(class="form-control" name="gateway" id="gateway")
+                        option(value="0") Select the Gateway
+                        if gateways!=null
+                            for gateway in gateways
+                                option(value="#{gateway._id}") #{gateway.name}
+                
+                div(class="form-group top-space")
+                    input(type="submit", value="Create Device" class="btn btn-info") 
+                
+                if typeof validations != 'undefined'
+                    for validation in validations 
+                        div(class="alert alert-warning alert-dismissible fade show" role="alert")
+                            strong #{validation.msg}
+                            button(type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close")

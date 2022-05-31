@@ -1,0 +1,18 @@
+extends ../layout.jade
+block content
+    div(class="m-0 row justify-content-center")
+        div(class="col-md-6 remove-float top-space")
+            h1 Edit Gateway.
+            a(href="/app/gateways" class="d-flex justify-content-end") Come Back
+            form(action="/app/gateways/#{gateway._id}?_method=PUT", method="post") 
+                div(class="form-group mt-2")
+                    label(for="serialNumber") Serial Number 
+                    input(type="text" class="form-control" name="serialNumber" placeholder="Enter the serial number" id="serialNumber" value="#{gateway.serialNumber}")
+                div(class="form-group mt-2") 
+                    label(for="name") Name
+                    input(type="text" class="form-control" name="name" placeholder="Enter the name" id="name" value="#{gateway.name}")
+                div(class="form-group mt-2") 
+                    label(for="ipv4") IPv4
+                    input(type="text" class="form-control" name="ipv4" placeholder="Enter the ipv4" id="ipv4" value="#{gateway.ipv4}")
+                div(class="form-group top-space")
+                    input(type="submit", value="Update" class="btn btn-info") 

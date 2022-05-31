@@ -1,0 +1,12 @@
+extends ../layout.jade
+block content
+    div(class="m-0 row justify-content-center")
+        div(class="col-md-6 remove-float top-space")
+            h1 Show details of a device.
+            a(href="/app/devices" class="d-flex justify-content-end") Come Back
+            div
+                p Id: #{device.uid}
+                p Vendor: #{device.vendor}
+                p Date created: #{device.date_created.getFullYear()}-#{device.date_created.getMonth()+1}-#{device.date_created.getDate()}
+                p Status: #{device.status?'Online':'Offline'}                      
+                p Gateway: #{device.gateway.name}

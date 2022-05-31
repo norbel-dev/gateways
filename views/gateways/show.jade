@@ -1,0 +1,20 @@
+extends ../layout.jade
+block content
+    div(class="m-0 row justify-content-center")
+        div(class="col-md-6 remove-float top-space")
+            h1 Show details of a gateway.
+            a(href="/app/gateways" class="d-flex justify-content-end") Come Back
+            div
+                p Serial Number: #{gateway.serialNumber}
+                p Name: #{gateway.name}
+                p Ipv4: #{gateway.ipv4}
+                p Device Count:
+                    if gateway.deviceCount > 0
+                        a(href="/app/devices/#{gateway._id}/group" ) #{gateway.deviceCount} 
+                    else
+                        a(href="" ) #{gateway.deviceCount} 
+                p #{gateway.toBeValidated?'To be validated.':'Successfully validated.'}
+                if gateway.toBeValidated
+                    a(href="/app/gateways/#{gateway._id}/validate" class="btn btn-success right-space") Validate
+                if edit
+                    a(href="/app/gateways/#{gateway._id}/edit" class="btn btn-success") Edit
