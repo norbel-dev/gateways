@@ -17,3 +17,4 @@ app.set("view engine", "jade");
 app.use("/app", router_app);
 
 app.listen(8080);
+console.log("Server is now running on http://localhost:8080/app");
